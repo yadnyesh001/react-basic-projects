@@ -1,0 +1,162 @@
+.acc-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.acc-wrapper button {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.acc-wrapper button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.acc-wrapper button:active {
+  transform: translateY(0);
+}
+
+.accordian {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.item {
+  background: #ffffff;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  padding: 1.2rem;
+  color: #2d3748;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  font-family: 'System-ui', -apple-system, sans-serif;
+}
+
+.title h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.title span {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.acc-content {
+  color: #4a5568;
+  background: #f7fafc;
+  padding: 0;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  line-height: 1.6;
+}
+
+/* Show content when active */
+.item .acc-content {
+  padding: 1.2rem;
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accordian {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .title h3 {
+    font-size: 1rem;
+  }
+
+  .acc-wrapper button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Custom Scrollbar */
+.accordian::-webkit-scrollbar {
+  width: 8px;
+}
+
+.accordian::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.accordian::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+/* Add smooth animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item .acc-content {
+  animation: slideDown 0.3s ease-out;
+}
